@@ -14,8 +14,24 @@
 		"react-to-print": "^3.2.0",
 		"web-vitals": "^2.1.4"
 	},
-	"author": "Jay",
+	"author": "JayNightmare",
 	"license": "MIT",
+	"homepage": "https://resume.nexusgit.info/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JayNightmare/Resume-Builder.git"
+	},
+	"bugs": {
+		"url": "https://github.com/JayNightmare/Resume-Builder/issues"
+	},
+	"keywords": [
+		"resume-builder",
+		"cv-maker",
+		"free-resume-template",
+		"pdf-resume",
+		"professional-cv"
+	],
+	"description": "Build a professional resume in minutes with our free, real-time resume builder. Choose from modern templates, customize colors, and export to PDF instantly.",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",

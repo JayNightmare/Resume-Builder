@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { Printer, Save } from "lucide-react";
+import { Printer } from "lucide-react";
 import EditorPanel from "../Editor/EditorPanel";
 import PreviewPanel from "../Preview/PreviewPanel";
 import AccountMenu from "./AccountMenu";
