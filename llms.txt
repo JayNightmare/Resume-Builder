@@ -1,0 +1,35 @@
+# Resume Builder
+
+A professional, single-page React application for building and exporting resumes in real-time.
+
+## Project Overview
+This project is a Resume Builder that allows users to input their personal details, experience, education, and skills to generate a professionally styled resume. It features a split-screen layout with an editor on the left and a live A4 preview on the right.
+
+## Key Features
+- **Real-time Preview**: Instant visual feedback as you type.
+- **Multiple Templates**:
+  - **Modern**: A clean, minimalist design with a header.
+  - **Sidebar**: A two-column layout with a colored sidebar.
+- **Dynamic Page Generation**: Automatically handles content overflow by splitting text across multiple A4 pages.
+- **PDF Export**: High-quality PDF generation for printing or sharing.
+- **Local Persistence**: Autosaves progress to the browser's local storage.
+- **Theming**: Customizable colors and fonts.
+
+## Tech Stack
+- **Frontend**: React (v19)
+- **Styling**: Tailwind CSS, Vanilla CSS for print styles
+- **Icons**: Lucide React
+- **Printing**: react-to-print
+- **Build Tool**: Create React App (react-scripts)
+
+## Architecture
+- `src/components/Editor`: Input forms and controls.
+- `src/components/Preview`: Resume rendering logic (`ResumeDocument`).
+- `src/components/templates`: Template definitions (`ModernTemplate`, `SidebarTemplate`).
+- `src/utils`: Helper functions, including `pageGeneration.js` for layout calculations.
+- `src/data`: Initial state and template registry.
+
+## Usage
+- Run `npm start` to launch the development server.
+- Run `npm run build` to create a production bundle.
+- Deployed via GitHub Pages.
