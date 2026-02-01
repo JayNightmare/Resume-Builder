@@ -5,6 +5,7 @@ import EditorPanel from "../Editor/EditorPanel";
 import PreviewPanel from "../Preview/PreviewPanel";
 import AccountMenu from "./AccountMenu";
 import { useResume } from "../../context/ResumeContext";
+import { Logo } from "../Layout/Logo";
 
 // Icons need additional install if not present: npm install lucide-react
 
@@ -47,10 +48,8 @@ const SplitScreen = () => {
 			{/* Header */}
 			<header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between z-10 transition-colors duration-200">
 				<div className="flex items-center gap-2">
-					<div className="bg-blue-600 text-white p-2 rounded">
-						<span className="font-bold text-lg">
-							RB
-						</span>
+					<div className="bg-blue-600 text-white rounded overflow-hidden">
+						<Logo size={32} />
 					</div>
 					<div>
 						<h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">
