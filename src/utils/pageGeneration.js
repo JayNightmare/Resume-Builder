@@ -50,7 +50,7 @@ export const usePageGeneration = (data, sourceRef) => {
 				summary: "",
 				experience: [],
 				education: [],
-				skills: "", // Text based skills
+				skills: [], // Text based skills
 				theme: data.theme,
 				// Helper for template to know it's a continuation?
 				// We rely on the fact that arrays are empty to not render sections.
@@ -335,18 +335,30 @@ export const usePageGeneration = (data, sourceRef) => {
 						currentHeight += realHeight;
 					}
 				} else if (type === "skills") {
-					if (
-						currentHeight + realHeight >
-						PAGE_HEIGHT_LIMIT
-					) {
-						startNewPage();
+					const insideSidebar = section.closest(
+						'[data-section="sidebar"]',
+					);
+
+					if (insideSidebar) {
 						currentPage.skills =
 							data.skills;
-						currentHeight += realHeight;
 					} else {
-						currentPage.skills =
-							data.skills;
-						currentHeight += realHeight;
+						if (
+							currentHeight +
+								realHeight >
+							PAGE_HEIGHT_LIMIT
+						) {
+							startNewPage();
+							currentPage.skills =
+								data.skills;
+							currentHeight +=
+								realHeight;
+						} else {
+							currentPage.skills =
+								data.skills;
+							currentHeight +=
+								realHeight;
+						}
 					}
 				} else if (type === "experience") {
 					const index = parseInt(

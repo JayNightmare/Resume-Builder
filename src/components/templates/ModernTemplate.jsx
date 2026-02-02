@@ -429,14 +429,48 @@ const ModernTemplate = ({ data, isFirstPage = true }) => {
 				)}
 
 				{/* Skills */}
-				{skills && (
+				{/* Skills */}
+				{(Array.isArray(skills)
+					? skills.length > 0
+					: skills) && (
 					<div data-section="skills">
 						<h3 className="text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-200 pb-2 mb-3">
 							Skills
 						</h3>
-						<p className="text-sm text-gray-600 leading-6 break-words whitespace-pre-wrap">
-							{skills}
-						</p>
+						<div className="flex flex-wrap gap-2">
+							{(Array.isArray(skills)
+								? skills
+								: skills
+										.split(
+											",",
+										)
+										.map(
+											(
+												s,
+											) =>
+												s.trim(),
+										)
+										.filter(
+											Boolean,
+										)
+							).map(
+								(
+									skill,
+									index,
+								) => (
+									<span
+										key={
+											index
+										}
+										className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full font-medium print:bg-gray-100 break-words max-w-full"
+									>
+										{
+											skill
+										}
+									</span>
+								),
+							)}
+						</div>
 					</div>
 				)}
 			</div>

@@ -248,8 +248,13 @@ const SidebarTemplate = ({ data, isFirstPage = true }) => {
 						</div>
 
 						{/* Skills */}
-						{skills && (
-							<div className="mt-8">
+						{(Array.isArray(skills)
+							? skills.length > 0
+							: skills) && (
+							<div
+								className="mt-8"
+								data-section="skills"
+							>
 								<h3
 									className="text-xs font-bold uppercase tracking-widest border-b border-gray-600 pb-2 mb-4"
 									style={{
@@ -258,9 +263,50 @@ const SidebarTemplate = ({ data, isFirstPage = true }) => {
 								>
 									Skills
 								</h3>
-								<p className="text-sm leading-6 opacity-80 whitespace-pre-wrap break-words">
-									{skills}
-								</p>
+								<div className="flex flex-wrap gap-2">
+									{(Array.isArray(
+										skills,
+									)
+										? skills
+										: skills
+												.split(
+													",",
+												)
+												.map(
+													(
+														s,
+													) =>
+														s.trim(),
+												)
+												.filter(
+													Boolean,
+												)
+									).map(
+										(
+											skill,
+											index,
+										) => (
+											<span
+												key={
+													index
+												}
+												className="px-2 py-1 text-xs rounded font-medium break-words max-w-full"
+												style={{
+													backgroundColor:
+														sidebarText ===
+														"#ffffff"
+															? "rgba(255, 255, 255, 0.1)"
+															: "rgba(0, 0, 0, 0.05)",
+													color: sidebarText,
+												}}
+											>
+												{
+													skill
+												}
+											</span>
+										),
+									)}
+								</div>
 							</div>
 						)}
 					</>

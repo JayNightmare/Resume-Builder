@@ -41,7 +41,15 @@ const initialData = {
 			endDate: "2018",
 		},
 	],
-	skills: "Figma, Sketch, Adobe XD, HTML/CSS, React, User Research, Prototyping",
+	skills: [
+		"Figma",
+		"Sketch",
+		"Adobe XD",
+		"HTML/CSS",
+		"React",
+		"User Research",
+		"Prototyping",
+	],
 	theme: {
 		accent: "#2563eb", // Primary action/highlight
 		background: "#ffffff", // Document background
@@ -67,7 +75,7 @@ const emptyData = {
 	summary: "",
 	experience: [],
 	education: [],
-	skills: "",
+	skills: [],
 	theme: {
 		accent: "#2563eb",
 		background: "#ffffff",
@@ -87,6 +95,15 @@ export const ResumeProvider = ({ children }) => {
 		const saved = localStorage.getItem("resumeData");
 		if (saved) {
 			const parsed = JSON.parse(saved);
+
+			// Migration: Convert skills string to array if needed
+			if (typeof parsed.skills === "string") {
+				parsed.skills = parsed.skills
+					.split(",")
+					.map((s) => s.trim())
+					.filter((s) => s.length > 0);
+			}
+
 			// Migration: If old structure exists (theme.color directly or theme.theme.color)
 			if (
 				parsed.theme &&
